@@ -1,0 +1,14 @@
+- name: Install mysql
+  apt: name={{ item }} state=latest
+  with_items:
+    - mysql-server
+    - python-mysqldb
+    - php5-mysql
+    - libapache2-mod-auth-mysql
+  notify: start mysql
+- name: Create deploy user for mysql
+  mysql_user: user="deploy" host="%" password=vagrant priv=*.*:ALL,GRANT
+- name: Create the test database
+  mysql_db: name=test state=present
+- name: Remove the test database
+  mysql_db: name=test state=absent

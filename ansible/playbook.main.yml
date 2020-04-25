@@ -1,0 +1,13 @@
+---
+
+- hosts: db1
+  become: true
+  roles:
+    - mysql
+
+
+- hosts: app1
+  become: true
+  roles:
+    - php5
+    - apache2

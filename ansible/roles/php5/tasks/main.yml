@@ -1,0 +1,9 @@
+
+- name: Install php5
+  become: true
+  apt: pkg=php5 state=latest update_cache=yes
+
+- name: Install PHP Packages
+  become: true
+  apt: pkg={{ item }} state=latest
+  with_items: ["php5-cli","php5-curl","php5-gd","php5-intl","php5-xcache","php5-common", "php5-mysql"]
