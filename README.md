@@ -12,6 +12,10 @@ password for all VM's: vagrant
 Acess apache:
 vagrant ssh app1
 curl 192.168.135.111 to see apache working
+
+
+
+
 Acess mysql:
 vagrant ssh db1
 mysql -u deploy -p
